@@ -6,7 +6,12 @@ import {
   smoothAndFill,
   type InitialStability,
 } from "./initial-stability";
-import { current, type FsrsItem, type FsrsRating } from "./item";
+import {
+  current,
+  longTermReviewCount,
+  type FsrsItem,
+  type FsrsRating,
+} from "./item";
 import {
   DEFAULT_TRAINING_CONFIG,
   train,
@@ -102,6 +107,15 @@ export function computeParameters({
       item.reviews.some((review) => review.rating < 1 || review.rating > 4)
     ) {
       throw new InvalidInput("every item needs reviews rated 1 to 4");
+    }
+
+    // fsrs-rs unwraps this deep inside the outlier filter, and never trips it
+    // because its Anki importer drops such items before training. A library is
+    // handed items by its caller, so it has to say so itself.
+    if (longTermReviewCount(item) === 0) {
+      throw new InvalidInput(
+        "every item needs one review with deltaT > 0; answers that all fall on a single day say nothing about how long memory lasts, so leave those prefixes out",
+      );
     }
   }
 

@@ -1,6 +1,6 @@
 {
   "name": "ts-fsrs-optimizer",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "FSRS parameter optimizer in pure TypeScript. No native module, no WebAssembly, no server — it runs wherever JavaScript does, including React Native.",
   "keywords": [
     "fsrs",

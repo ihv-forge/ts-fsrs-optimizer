@@ -70,16 +70,25 @@ const reviews: FsrsReview[] = [
 
 const items: FsrsItem[] = [];
 
-for (let length = 2; length <= reviews.length; length += 1) {
+// Start at the first review that reached a later day: see the third rule below.
+const firstLongTerm = reviews.findIndex((review) => review.deltaT > 0);
+
+for (let length = firstLongTerm + 1; length <= reviews.length; length += 1) {
   items.push({ reviews: reviews.slice(0, length) });
 }
 ```
 
-Two rules that are easy to get wrong:
+Three rules that are easy to get wrong:
 
 - **Order the whole set by review time.** Recent reviews are weighted far more
   heavily than old ones, and nothing in the library can detect the wrong order.
 - **Ratings are 1–4** (again, hard, good, easy). Anything else is rejected.
+- **Every item needs one review with `deltaT > 0`.** A card answered twice on the
+  same day says nothing about how long memory lasts, so such an item is rejected
+  rather than trained on. This is not a corner case: any app that repeats a card
+  within the day produces those prefixes constantly. Drop them — nothing is lost,
+  because those answers stay in the history of the first prefix that does reach
+  the next day.
 
 ### Grouping by card
 
@@ -109,8 +118,8 @@ Too little history is a result, not an error:
   stability is fitted.
 
 `InvalidInput` is thrown only for input that cannot mean anything: an empty
-review list, a rating outside 1–4, `cardIds` that do not line up, or a training
-config that cannot run.
+review list, a rating outside 1–4, an item with no review past the first day,
+`cardIds` that do not line up, or a training config that cannot run.
 
 ## How much to trust it
 

@@ -185,6 +185,15 @@ back empty — worth knowing before wondering why a small deck trains on nothing
    separate `_with_card_ids` because of its return type; here `cardIds` is a
    nullable argument and the result carries `trainCardIds: number[] | null`.
 
+9. **The input contract is checked up front.** `first_long_term_review()`
+   unwraps in Rust and panics on an item whose reviews all have `delta_t == 0`;
+   upstream never reaches it because `anki_to_fsrs` filters those items out
+   before training. A library is handed its items by the caller, so
+   `computeParameters` states the precondition itself and throws `InvalidInput`.
+   Rejecting rather than silently dropping is deliberate: a caller whose
+   `deltaT` arithmetic is wrong would otherwise get an empty training set and
+   the default parameters back, with nothing to say something went wrong.
+
 ## Unverified assumptions
 
 - **Transcendental functions.** `f32(Math.exp(x))` is assumed to equal Rust's
@@ -211,6 +220,9 @@ back empty — worth knowing before wondering why a small deck trains on nothing
   property the fixture is there to demonstrate: the loop lowers the loss it
   started from.
 - A reproducibility test: same seed, same input, identical parameters.
+- A test for the same-day precondition above, found the way such things usually
+  are: the first run against a real review log, on a phone, where a card
+  answered twice within one day is ordinary rather than exotic.
 
 ## Measurements
 

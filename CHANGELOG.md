@@ -10,6 +10,23 @@ the API is untouched.
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-09-06
+
+### Fixed
+
+- An item whose reviews all fall on one day is now rejected with `InvalidInput`
+  and a message that says what to do, instead of a bare `Error` thrown from
+  inside the outlier filter. The precondition was always there — inherited from
+  `first_long_term_review()` in fsrs-rs, which unwraps — but nothing said so,
+  and the README's own example produced such items for any card answered twice
+  within a day. That is ordinary in an app with same-day repetition, so this was
+  hit on the first run against a real review log.
+
+### Changed
+
+- README documents the rule and builds its example items from the first review
+  that reached a later day.
+
 ## [0.1.1] - 2026-09-06
 
 No change to the published code: `dist` is identical to 0.1.0. This release
@@ -46,6 +63,7 @@ First release. A port of the optimizer half of
   been run against a real collection alongside
   `@open-spaced-repetition/binding`.
 
-[unreleased]: https://github.com/ihv-forge/ts-fsrs-optimizer/compare/v0.1.1...HEAD
+[unreleased]: https://github.com/ihv-forge/ts-fsrs-optimizer/compare/v0.1.2...HEAD
+[0.1.2]: https://github.com/ihv-forge/ts-fsrs-optimizer/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/ihv-forge/ts-fsrs-optimizer/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/ihv-forge/ts-fsrs-optimizer/releases/tag/v0.1.0

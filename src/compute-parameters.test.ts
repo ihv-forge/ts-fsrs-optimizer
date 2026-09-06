@@ -85,6 +85,22 @@ describe("computeParameters", () => {
     ).toThrow(InvalidInput);
   });
 
+  it("rejects an item whose answers all fall on one day", () => {
+    expect(() =>
+      computeParameters({
+        trainSet: [
+          ...prefixes(20),
+          {
+            reviews: [
+              { rating: 1, deltaT: 0 },
+              { rating: 3, deltaT: 0 },
+            ],
+          },
+        ],
+      }),
+    ).toThrow(InvalidInput);
+  });
+
   it("rejects a training config that cannot run", () => {
     expect(() =>
       computeParameters({
