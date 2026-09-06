@@ -2,8 +2,8 @@
 
 [![CI](https://github.com/ihv-forge/ts-fsrs-optimizer/actions/workflows/ci.yml/badge.svg)](https://github.com/ihv-forge/ts-fsrs-optimizer/actions/workflows/ci.yml)
 [![npm](https://img.shields.io/npm/v/ts-fsrs-optimizer)](https://www.npmjs.com/package/ts-fsrs-optimizer)
-[![licence](https://img.shields.io/npm/l/ts-fsrs-optimizer)](./LICENSE)
-[![no dependencies](https://img.shields.io/badge/dependencies-none-brightgreen)](./package.json)
+[![licence](https://img.shields.io/npm/l/ts-fsrs-optimizer)](https://github.com/ihv-forge/ts-fsrs-optimizer/blob/main/LICENSE)
+[![no dependencies](https://img.shields.io/badge/dependencies-none-brightgreen)](https://github.com/ihv-forge/ts-fsrs-optimizer/blob/main/package.json)
 
 Fits the 21 [FSRS](https://github.com/open-spaced-repetition/fsrs4anki/wiki/The-Algorithm)
 parameters to one person's review history, in pure TypeScript.
@@ -15,6 +15,10 @@ optimizers cannot go.
 ```bash
 npm install ts-fsrs-optimizer
 ```
+
+[Repository](https://github.com/ihv-forge/ts-fsrs-optimizer) ·
+[Changelog](https://github.com/ihv-forge/ts-fsrs-optimizer/blob/main/CHANGELOG.md) ·
+[Porting notes](https://github.com/ihv-forge/ts-fsrs-optimizer/blob/main/PORTING.md)
 
 ## Why this exists
 
@@ -123,7 +127,7 @@ converges to the wrong place looks exactly like gradient descent that works.
 - **Mutation-checked.** Those tests were themselves verified by deliberately
   flipping gradient signs to confirm they fail. Two mutations survived the
   upstream fixture — the port ships an extra batch that catches them (see
-  [PORTING.md](./PORTING.md)).
+  [PORTING.md](https://github.com/ihv-forge/ts-fsrs-optimizer/blob/main/PORTING.md)).
 
 ## Known divergences from fsrs-rs
 
@@ -132,7 +136,7 @@ shuffling uses a small PRNG rather than a port of `rand`'s ChaCha12. The same
 seed and input give the same parameters here; they will not equal the Rust
 output. Everything else is transcribed faithfully.
 
-[PORTING.md](./PORTING.md) records every divergence, the assumptions that have not
+[PORTING.md](https://github.com/ihv-forge/ts-fsrs-optimizer/blob/main/PORTING.md) records every divergence, the assumptions that have not
 been proven, and the `f32`/`f64` trap that dominates a port like this.
 
 ## Performance
@@ -152,15 +156,15 @@ Roughly linear. Not a device measurement.
 Bug reports and pull requests are welcome. Because this is a port, there are a
 few rules that are not obvious — chiefly that the code deliberately mirrors the
 Rust it came from, and that `f32` rounding is load-bearing.
-[CONTRIBUTING.md](./CONTRIBUTING.md) covers them, and
-[PORTING.md](./PORTING.md) explains why.
+[CONTRIBUTING.md](https://github.com/ihv-forge/ts-fsrs-optimizer/blob/main/CONTRIBUTING.md) covers them, and
+[PORTING.md](https://github.com/ihv-forge/ts-fsrs-optimizer/blob/main/PORTING.md) explains why.
 
-Changes are recorded in [CHANGELOG.md](./CHANGELOG.md).
+Changes are recorded in [CHANGELOG.md](https://github.com/ihv-forge/ts-fsrs-optimizer/blob/main/CHANGELOG.md).
 
 ## Licence
 
 BSD-3-Clause, inherited from fsrs-rs. Copyright (c) 2023 Open Spaced Repetition
-and (c) 2026 ihv-forge. See [LICENSE](./LICENSE).
+and (c) 2026 ihv-forge. See [LICENSE](https://github.com/ihv-forge/ts-fsrs-optimizer/blob/main/LICENSE).
 
 Thanks to [Jarrett Ye](https://github.com/L-M-Sherlock) and the Open Spaced
 Repetition contributors, whose work this is a translation of.
