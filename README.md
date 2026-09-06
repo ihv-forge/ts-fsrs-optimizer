@@ -168,3 +168,6 @@ and (c) 2026 ihv-forge. See [LICENSE](https://github.com/ihv-forge/ts-fsrs-optim
 
 Thanks to [Jarrett Ye](https://github.com/L-M-Sherlock) and the Open Spaced
 Repetition contributors, whose work this is a translation of.
+
+This project is not affiliated with, endorsed by, or supported by Open Spaced
+Repetition. Please report problems here rather than to them.

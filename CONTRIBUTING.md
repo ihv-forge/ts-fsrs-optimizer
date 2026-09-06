@@ -14,6 +14,11 @@ npm run build    # ESM + CJS + types into dist/
 
 `npm test` alone runs the suite; `npm run test:watch` while you work.
 
+`npm run build` is part of CI on purpose, not just `test`: type generation can
+break while `tsc --noEmit` still passes. TypeScript 7 does exactly that today —
+it typechecks this code fine, but tsup's declaration step cannot run on it, so
+the package stays on TypeScript 5 until that is fixed upstream.
+
 No linter beyond `tsc` and Prettier. The package has no runtime dependencies and
 that is a feature — please do not add one without a discussion first.
 
