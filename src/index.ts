@@ -5,7 +5,7 @@
  * Derived from fsrs-rs (https://github.com/open-spaced-repetition/fsrs-rs),
  * Copyright (c) 2023 Open Spaced Repetition, licensed BSD-3-Clause. Structure
  * and naming follow the Rust source on purpose: this code is only trustworthy
- * for as long as it can be read side by side with the original. NOTES.md
+ * for as long as it can be read side by side with the original. PORTING.md
  * records where it knowingly departs from it.
  */
 

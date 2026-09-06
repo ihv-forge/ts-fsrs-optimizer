@@ -13,7 +13,7 @@
     "learning"
   ],
   "license": "BSD-3-Clause",
-  "author": "Ihor Vashchenko",
+  "author": "ihv-forge",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ihv-forge/ts-fsrs-optimizer.git"
@@ -37,10 +37,11 @@
   },
   "files": [
     "dist",
-    "NOTES.md"
+    "PORTING.md",
+    "CHANGELOG.md"
   ],
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "scripts": {
     "build": "tsup",

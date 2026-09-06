@@ -1,12 +1,12 @@
 # Porting notes
 
-Working notes for the TypeScript port of the FSRS optimizer. Everything here is
-meant to survive into the standalone package: findings, deliberate divergences,
-assumptions that have not been proven, and the places where the upstream test
+How this package relates to [fsrs-rs](https://github.com/open-spaced-repetition/fsrs-rs),
+which it is a port of: the findings that shaped it, every deliberate divergence,
+the assumptions that have not been proven, and the places where the upstream test
 suite turned out to be weaker than it looks.
 
-Written in English because this file ships with the code when the module becomes
-its own repository, not because the surrounding project is.
+Read this before changing anything numerical. [CONTRIBUTING.md](./CONTRIBUTING.md)
+covers the mechanics; this file covers why the code looks the way it does.
 
 ## Provenance and licence
 

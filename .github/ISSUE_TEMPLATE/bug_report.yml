@@ -1,0 +1,42 @@
+name: Bug report
+description: Something computes the wrong answer, throws, or will not build
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you expected, and what you got instead.
+    validations:
+      required: true
+  - type: textarea
+    id: input
+    attributes:
+      label: Input that reproduces it
+      description: >
+        For a wrong result this is the whole report. A review history (even a
+        trimmed one), the options passed to computeParameters, and the
+        parameters that came back. "The numbers look off" is very hard to act
+        on; a failing case is not.
+      render: ts
+  - type: input
+    id: version
+    attributes:
+      label: Package version
+      placeholder: 0.1.0
+    validations:
+      required: true
+  - type: input
+    id: runtime
+    attributes:
+      label: Runtime
+      placeholder: Node 22 / React Native 0.86 Hermes / Chrome 130
+  - type: textarea
+    id: comparison
+    attributes:
+      label: Comparison against fsrs-rs, if you have one
+      description: >
+        A difference against @open-spaced-repetition/binding on the same data is
+        the most useful report this project can get. Note that batch shuffling
+        differs by design, so parameters are never bit-identical — see
+        PORTING.md.

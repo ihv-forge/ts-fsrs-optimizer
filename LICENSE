@@ -1,7 +1,7 @@
 BSD 3-Clause License
 
 Copyright (c) 2023, Open Spaced Repetition
-Copyright (c) 2026, Ihor Vashchenko
+Copyright (c) 2026, ihv-forge
 
 This is a derivative work: the algorithm and the structure of this code are
 ported from fsrs-rs (https://github.com/open-spaced-repetition/fsrs-rs).
