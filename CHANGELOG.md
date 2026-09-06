@@ -10,6 +10,19 @@ the API is untouched.
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-09-06
+
+No change to the published code: `dist` is identical to 0.1.0. This release
+exists to prove that publishing works without a registry token, now that the
+repository is configured as a trusted publisher on npm — a thing worth learning
+while nothing depends on the answer.
+
+### Changed
+
+- Release workflow publishes through OIDC instead of an `NPM_TOKEN` secret. The
+  token has been revoked and the secret deleted, so the repository now holds no
+  publishing credential at all.
+
 ## [0.1.0] - 2026-09-06
 
 First release. A port of the optimizer half of
@@ -33,5 +46,6 @@ First release. A port of the optimizer half of
   been run against a real collection alongside
   `@open-spaced-repetition/binding`.
 
-[unreleased]: https://github.com/ihv-forge/ts-fsrs-optimizer/compare/v0.1.0...HEAD
+[unreleased]: https://github.com/ihv-forge/ts-fsrs-optimizer/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/ihv-forge/ts-fsrs-optimizer/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/ihv-forge/ts-fsrs-optimizer/releases/tag/v0.1.0
