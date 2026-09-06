@@ -1,0 +1,61 @@
+{
+  "name": "ts-fsrs-optimizer",
+  "version": "0.1.0",
+  "description": "FSRS parameter optimizer in pure TypeScript. No native module, no WebAssembly, no server — it runs wherever JavaScript does, including React Native.",
+  "keywords": [
+    "fsrs",
+    "spaced-repetition",
+    "srs",
+    "optimizer",
+    "scheduling",
+    "anki",
+    "memory",
+    "learning"
+  ],
+  "license": "BSD-3-Clause",
+  "author": "Ihor Vashchenko",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ihv-forge/ts-fsrs-optimizer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ihv-forge/ts-fsrs-optimizer/issues"
+  },
+  "homepage": "https://github.com/ihv-forge/ts-fsrs-optimizer#readme",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "NOTES.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write .",
+    "verify": "npm run typecheck && npm run format && npm run test",
+    "prepublishOnly": "npm run verify && npm run build"
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.0"
+  }
+}
